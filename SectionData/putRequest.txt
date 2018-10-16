@@ -1,0 +1,25 @@
+
+        $("#UpdateSectionButton").click(function () {
+            var SectionName = $("#SectionName").val();
+            var Name = $("#Name").val();
+            var City = $("#City").val();
+            var Location = $("#Location").val();
+
+            $.ajax({
+                type: "PUT",
+                url: "/conference/" + SectionName + "/info",
+                data: JSON.stringify({ sectionName: SectionName, name: Name, city: City, location: Location }),
+                contentType: "application/json; charset=utf-8",
+                success: function (data) {
+                    alert(data);
+                },
+                error: function (error) {
+                    alert(error);
+                }
+            })
+            
+        });
+
+
+
+<button type="submit" id="UpdateSectionButton" class="btn btn-success">Update new Section</button>
